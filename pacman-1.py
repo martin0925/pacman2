@@ -96,7 +96,7 @@ def create_grid():
     return
 
 def draw_screen():
-    #TODO vymyslet, kde ty prekazky fakt budou
+    #HOTOVO
     obstacle_position = [[2,2],[3,2],[6,2],[8,2],[9,2],[10,2],[11,2],[12,2],[14,2],[15,2],[16,2],[17,2],[19,2],[20,2],[21,2],[22,2],[23,2],[25,2],[28,2],[29,2],
                          [2,3],[6,3],[8,3],[14,3],[15,3],[16,3],[17,3],[23,3],[25,3],[29,3],
                          [2,4],[4,4],[5,4],[6,4],[8,4],[10,4],[11,4],[12,4],[14,4],[15,4],[16,4],[17,4],[19,4],[20,4],[21,4],[23,4],[25,4],[26,4],[27,4],[29,4],
@@ -142,17 +142,22 @@ def draw_pacman(position_x,position_y):
     pygame.draw.rect(DISPLAYSURF, SEAGREEN,(position_x*CELLSIZE, position_y*CELLSIZE, CELLSIZE-2, CELLSIZE-2))
     pygame.display.update()
 
-#udelat to tak, aby se to jidlo nakreslilo uprostred policka a ne v levem hornim rohu
+
+
 def draw_food():
+    #HOTOVO
     for q in range(len(GRID)):
         for w in range(len(GRID[q])):
-            if (GRID[q][w] == 2):
-                pygame.draw.rect(DISPLAYSURF, RED,(q*CELLSIZE,w*CELLSIZE, CELLSIZE/4, CELLSIZE/4))
+           if (GRID[q][w] == 2):
+                food=pygame.draw.rect(DISPLAYSURF, RED,(q*CELLSIZE+CELLSIZE * 3/8,w*CELLSIZE+CELLSIZE * 3/8,CELLSIZE/4, CELLSIZE/4))
+              
+   
 
 def move(direction):
     new_x = 0
     new_y = 0
 
+    pacman_x,pacman_y = 1,1
     for q in range(len(GRID)):
         for w in range(len(GRID[q])):
             if (GRID[q][w] == 3):
@@ -223,6 +228,8 @@ def run_game():
             move(direction)
 
 
+
+   
 
 
 
